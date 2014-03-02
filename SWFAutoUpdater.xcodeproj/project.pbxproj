@@ -22,6 +22,7 @@
 		2459BE2B18C382D900F97A97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2459BE0A18C382D800F97A97 /* UIKit.framework */; };
 		2459BE3318C382D900F97A97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2459BE3118C382D900F97A97 /* InfoPlist.strings */; };
 		2459BE3518C382D900F97A97 /* SWFAutoUpdaterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2459BE3418C382D900F97A97 /* SWFAutoUpdaterTests.m */; };
+		2459BE4018C382F900F97A97 /* SWFAutoUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 2459BE3F18C382F900F97A97 /* SWFAutoUpdater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		2459BE3018C382D900F97A97 /* SWFAutoUpdaterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SWFAutoUpdaterTests-Info.plist"; sourceTree = "<group>"; };
 		2459BE3218C382D900F97A97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2459BE3418C382D900F97A97 /* SWFAutoUpdaterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWFAutoUpdaterTests.m; sourceTree = "<group>"; };
+		2459BE3E18C382F900F97A97 /* SWFAutoUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFAutoUpdater.h; sourceTree = "<group>"; };
+		2459BE3F18C382F900F97A97 /* SWFAutoUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFAutoUpdater.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				2459BE1F18C382D800F97A97 /* SWFViewController.m */,
 				2459BE2118C382D800F97A97 /* Images.xcassets */,
 				2459BE0D18C382D800F97A97 /* Supporting Files */,
+				2459BE3E18C382F900F97A97 /* SWFAutoUpdater.h */,
+				2459BE3F18C382F900F97A97 /* SWFAutoUpdater.m */,
 			);
 			path = SWFAutoUpdater;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2459BE1318C382D800F97A97 /* main.m in Sources */,
+				2459BE4018C382F900F97A97 /* SWFAutoUpdater.m in Sources */,
 				2459BE2018C382D800F97A97 /* SWFViewController.m in Sources */,
 				2459BE1718C382D800F97A97 /* SWFAppDelegate.m in Sources */,
 			);
