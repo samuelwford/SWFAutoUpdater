@@ -7,6 +7,30 @@
 //
 
 #import "SWFAutoUpdater.h"
+#import <SWFSemanticVersion/SWFSemanticVersion.h>
+
+@interface SWFSemanticVersion (SWFAutoUpdater)
+
++ (instancetype)swfau_appVersion;
+
+- (BOOL)swfau_isLessThan:(SWFSemanticVersion *)version;
+
+@end
+
+@implementation SWFSemanticVersion (SWFAutoUpdater)
+
++ (instancetype)swfau_appVersion
+{
+    NSString *appVersionString = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+    return [SWFSemanticVersion semanticVersionWithString:appVersionString];
+}
+
+- (BOOL)swfau_isLessThan:(SWFSemanticVersion *)version
+{
+    return [self compare:version] == NSOrderedAscending;
+}
+
+@end
 
 @implementation SWFAutoUpdater
 
@@ -27,7 +51,18 @@
     if (self.updateURL) {
         [self downloadLatestVersionInfoFromURL:self.updateURL completionHandler:^(NSDictionary *json) {
             if (json) {
+                NSString *latestVersionString = [json valueForKeyPath:@"latest.version"];
+                NSString *downloadURLString = [json valueForKeyPath:@"latest.url"];
+                NSString *aboutURLString = [json valueForKeyPath:@"latest.about"];
                 
+                NSURL *downloadURL = [NSURL URLWithString:downloadURLString];
+                NSURL *aboutURL = [NSURL URLWithString:aboutURLString];
+                
+                SWFSemanticVersion *latestVersion = [SWFSemanticVersion semanticVersionWithString:latestVersionString];
+                
+                if ([[SWFSemanticVersion swfau_appVersion] swfau_isLessThan:latestVersion]) {
+                    [self presentUpdateWithDownloadURL:downloadURL aboutURL:aboutURL];
+                }
             }
         }];
     }
@@ -52,6 +87,11 @@
     }];
     
     [task resume];
+}
+
+- (void)presentUpdateWithDownloadURL:(NSURL *)downloadURL aboutURL:(NSURL *)aboutURL
+{
+    
 }
 
 @end
